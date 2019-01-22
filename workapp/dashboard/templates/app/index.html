@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GHG Emissions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <!-- Google Charts -->
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'GHG Emissions(MT CO2e)'],
+          ['China', 12454.711],
+          ['United States', 6673.4497],
+          ['India', 2379.1668],
+          ['Japan', 1353.3473],
+          ['Brazil', 1017.8745],
+          ['RU', 2199.1173],
+          ['Germany', 894.0570],
+          ['Canada', 738.3825 ],
+          ['Mexico',733.0104 ],
+          ['Iran',733.0104 ],
+
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+  </head>
+  <body>
+  <!-- Section -->
+  <section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title center">
+        Green House Gas Emission
+      </h1>
+      <h2 class="subtitle">
+        Top 10 Countries
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+
+<div class="section">
+	<div class="container">
+	 <div id="regions_div" style="width: 1400px; height: 800px;"></div>
+</div>
+</div>
+  </body>
+</html>
